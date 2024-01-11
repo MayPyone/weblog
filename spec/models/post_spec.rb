@@ -45,15 +45,14 @@ RSpec.describe Post, type: :model do
   end
 
   it 'Recent comments' do
-    comment1 = Comment.create(text: 'First comment', post: subject, user:)
-    comment1 = Comment.create(text: 'second comment', post: subject, user:)
+    Comment.create(text: 'First comment', post: subject, user:)
+    Comment.create(text: 'second comment', post: subject, user:)
 
-    comment1 = Comment.create(text: 'third comment', post: subject, user:)
+    Comment.create(text: 'third comment', post: subject, user:)
 
-    comment1 = Comment.create(text: 'fourth comment', post: subject, user:)
-
-    comment1 = Comment.create(text: 'fifth comment', post: subject, user:)
-    comment1 = Comment.create(text: 'sixth comment', post: subject, user:)
+    Comment.create(text: 'fourth comment', post: subject, user:)
+    Comment.create(text: 'fifth comment', post: subject, user:)
+    Comment.create(text: 'sixth comment', post: subject, user:)
 
 
     expect(subject.recent_comments.count).to eq(5)

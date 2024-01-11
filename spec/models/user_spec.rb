@@ -29,9 +29,9 @@ RSpec.describe User, type: :model do
   end
 
   it 'Recent post should be 3' do
-    post1 = Post.create(title: 'Intro1', text: 'Hi', comment_counter: 0, like_counter: 2, author: subject)
-    post2 = Post.create(title: 'Intro2', text: 'Hi', comment_counter: 0, like_counter: 2, author: subject)
-    post3 = Post.create(title: 'Intro3', text: 'Hi', comment_counter: 0, like_counter: 2, author: subject)
+    Post.create(title: 'Intro1', text: 'Hi', comment_counter: 0, like_counter: 2, author: subject)
+    Post.create(title: 'Intro2', text: 'Hi', comment_counter: 0, like_counter: 2, author: subject)
+    Post.create(title: 'Intro3', text: 'Hi', comment_counter: 0, like_counter: 2, author: subject)
 
     expect(subject.recent_posts.count).to eq(3)
   end
