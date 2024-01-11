@@ -5,6 +5,7 @@ RSpec.describe Post, type: :model do
 
   subject { Post.new(title: 'Intro', text: 'Hi', comment_counter: 0, like_counter: 2, author: user) }
 
+
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
@@ -29,8 +30,9 @@ RSpec.describe Post, type: :model do
     expect(subject.like_counter).to eq(2)
   end
 
-  it 'updates the likes counter after creating a like' do
-    expect(subject.comment_counter).to eq(0)
+  it 'updates the post counter after creating a post' do
+    subject.update_posts_counter
+    expect(user.posts_counter).to eq(1)
   end
 
   it 'should be invalid for comment counters' do
@@ -40,5 +42,20 @@ RSpec.describe Post, type: :model do
 
   it 'Text should be the same' do
     expect(subject.text).to eq('Hi')
+  end
+
+  it 'Recent comments' do
+    comment1 = Comment.create(text: 'First comment', post: subject, user:)
+    comment1 = Comment.create(text: 'second comment', post: subject, user:)
+
+    comment1 = Comment.create(text: 'third comment', post: subject, user:)
+
+    comment1 = Comment.create(text: 'fourth comment', post: subject, user:)
+
+    comment1 = Comment.create(text: 'fifth comment', post: subject, user:)
+    comment1 = Comment.create(text: 'sixth comment', post: subject, user:)
+
+
+    expect(subject.recent_comments.count).to eq(5)
   end
 end
