@@ -47,14 +47,10 @@ RSpec.describe Post, type: :model do
   it 'Recent comments' do
     Comment.create(text: 'First comment', post: subject, user:)
     Comment.create(text: 'second comment', post: subject, user:)
-
     Comment.create(text: 'third comment', post: subject, user:)
-
     Comment.create(text: 'fourth comment', post: subject, user:)
     Comment.create(text: 'fifth comment', post: subject, user:)
     Comment.create(text: 'sixth comment', post: subject, user:)
-
-
     expect(subject.recent_comments.count).to eq(5)
   end
 end
