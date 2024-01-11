@@ -5,7 +5,6 @@ RSpec.describe Post, type: :model do
 
   subject { Post.new(title: 'Intro', text: 'Hi', comment_counter: 0, like_counter: 2, author: user) }
 
-
   it 'is valid with valid attributes' do
     expect(subject).to be_valid
   end
