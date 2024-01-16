@@ -18,7 +18,6 @@ RSpec.describe 'Users', type: :request do
 
   describe 'Elements for users' do
     it 'render the template of post index' do
-      user = User.create(name: 'May Pyone  ', id: '1')
       get '/users'
       expect(response.body).to render_template('index')
       expect(response.body).to include('<h1>Show all users</h1>')
