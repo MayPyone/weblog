@@ -13,4 +13,23 @@ class PostsController < ApplicationController
     @posts = @user.posts
     @comments = Comment.where(post_id: @posts.pluck(:id))
   end
+
+  def new
+    @user = User.find(params[:user_id])
+    @post = Post.new
+  end
+
+  def create
+    @post = current_user.posts.build(post_params)
+
+    return if @post.save
+
+    render 'new'
+  end
+
+  private
+
+  def post_params
+    params.require(:post).permit(:title, :text)
+  end
 end

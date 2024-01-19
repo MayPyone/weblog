@@ -8,4 +8,7 @@
   <div class="col">
     Number of posts: <%= user.posts.count %>
   </div>
+  <%= form_with url: new_user_post_path(user_id: user.id), method: :get do %>
+    <button type="submit" class="comment-button">Create post</button>
+  <% end %>
 </div>
