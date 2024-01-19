@@ -1,1 +1,21 @@
-<h1>Show all posts of a user</h1>
+<div class="container">
+<%= render partial: 'users/title', locals: { user: @user } %>
+<div class="container-fluid inner">
+<h2>Bio</h2>
+ <%= @user.bio %>
+</div>
+<% @posts.each do |post| %>
+<div class="container-fluid inner">
+<h2> <%= link_to post.title, user_post_path(@user.id, post.id) %></h2>
+ <%= post.text %>
+ <div>
+ <% post.recent_comments.each do |comment| %>
+ <%= render partial: 'comment', locals: { comment: comment } %>
+ <% end%>
+ </div>
+</div>
+<% end %>
+<div class="container text-center paginate">
+<a href="/"><button type="paginate"><%= will_paginate %></button></a>
+</div>
+</div>

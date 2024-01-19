@@ -1,1 +1,10 @@
-<h1>Show individual post of a user</h1>
+<div class="container-fluid inner post-show">
+<h2><%= @post.title %> by <%= @user.name %></h2>
+<div  class="button-group"><button>Comments: <%= @comments.count %></button><button>Likes:0</button></div>
+<div> <%= @post.text %></div>
+<div>
+ <% @post.comments.each do |comment| %>
+ <%= render partial: 'comment', locals: { comment: comment } %>
+ <% end%>
+ </div>
+</div>

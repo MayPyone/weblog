@@ -1,1 +1,5 @@
-<h1>Show all users</h1>
+<div class="container text-center">
+<% @users.each do |user| %>
+<%= render partial: 'title', locals: { user: user } %>
+<% end %>
+</div>

@@ -1,1 +1,16 @@
-<h1>Show the specific user</h1>
+<div class="container">
+<%= render partial: 'title', locals: { user: @user } %>
+<div class="container-fluid inner">
+<h2>Bio</h2>
+ <%= @user.bio %>
+</div>
+<% @recent_posts.each do |post| %>
+<div class="container-fluid inner">
+<h2> <%= link_to post.title, user_post_path(@user.id, post.id) %></h2>
+ <%= post.text %>
+</div>
+<% end %>
+<div class="container text-center">
+<button class="see-all"><%= link_to "See all posts", user_posts_path(@user.id) %> </button></div>
+
+</div>
