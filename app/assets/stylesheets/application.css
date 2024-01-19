@@ -13,3 +13,34 @@
  *= require_tree .
  *= require_self
  */
+.user-index {
+  margin: 1%;
+  background-color: lightblue;
+  padding: 2%;
+}
+
+.inner {
+  background-color: pink;
+  width: 98%;
+  margin: 2% 1%;
+  padding: 2%;
+}
+
+.paginate {
+  margin-bottom: 2%;
+}
+
+.comment {
+  background-color: gray;
+  margin: 2% auto;
+  padding: 1%;
+}
+
+.post-show .button-group {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.button-group button {
+  width: 10%;
+}
