@@ -1,6 +1,13 @@
 <div class="container-fluid inner post-show">
 <h2><%= @post.title %> by <%= @user.name %></h2>
-<div  class="button-group"><button>Comments: <%= @comments.count %></button><button>Likes:0</button></div>
+<div  class="button-group">
+<button class='comment-button'><%= link_to "Comments: #{@post.comments.count}", new_user_post_comment_path(@user, @post) %></button>
+
+<div class="like-button"><%= form_with url: user_post_likes_path(@post.author.id, @post.id), method: :post do |form| %>
+    <%= form.submit "Like #{pluralize(@post.likes.count,'')}" %>
+    <% end %>
+    </div>   
+</div>
 <div> <%= @post.text %></div>
 <div>
  <% @post.comments.each do |comment| %>
