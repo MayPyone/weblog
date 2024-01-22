@@ -54,5 +54,17 @@ RSpec.describe 'Users', type: :feature do
       visit user_path(@user1)
       expect(page).to have_selector('button', text: 'See all posts')
     end
+    it 'redirects to user show page too see all posts' do
+      visit user_path(@user1)
+      click_link 'See all posts'
+      sleep 15
+      expect(current_path).to eq(user_posts_path(@user1))
+    end
+    it 'redirect to sepcific post when the user click the post' do
+      visit user_path(@user2)
+      click_link 'Intro2'
+      sleep 15
+      expect(current_path).to eq(user_post_path(@user2, @post1))
+    end
   end
 end

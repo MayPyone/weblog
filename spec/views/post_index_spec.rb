@@ -14,6 +14,7 @@ RSpec.describe 'Users', type: :feature do
 
     @post1 = Post.create!(title: 'Intro2', text: 'Hi', comment_counter: 0, like_counter: 2, author: @user2)
     @comment1 = Comment.create(post: @post1, user: @user2, text: 'My comment')
+    @comment2 = Comment.create(post: @post1, user: @user2, text: 'My comment')
     @like1 = Like.create(post: @post1, user: @user2)
   end
 
@@ -57,7 +58,7 @@ RSpec.describe 'Users', type: :feature do
     end
     it 'return number of comments' do
       visit user_post_path(@user2, @post1)
-      expect(@user2.posts[0].comments.count).to have_content(1)
+      expect(@user2.posts[0].comments.count).to have_content(2)
     end
 
     it 'return number of likes' do

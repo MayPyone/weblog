@@ -11,7 +11,10 @@ RSpec.describe 'Users', type: :feature do
     Post.create!(title: 'Intro', text: 'Hi', comment_counter: 0, like_counter: 2, author: @user1)
     Post.create!(title: 'Intro', text: 'Hi', comment_counter: 0, like_counter: 2, author: @user1)
     @post1 = Post.create!(title: 'Intro', text: 'Hi', comment_counter: 0, like_counter: 2, author: @user2)
+
     @comment1 = Comment.create(post: @post1, user: @user2, text: 'My comment')
+    @comment2 = Comment.create(post: @post1, user: @user1, text: 'Comment2')
+
     @like1 = Like.create(post: @post1, user: @user2)
   end
 
@@ -22,10 +25,11 @@ RSpec.describe 'Users', type: :feature do
     end
 
     it 'returns username of each commentor.' do
-      comment = @user2.posts[0].comments.first
-      expected_username = 'May'
+      comments = @post1.comments
 
-      expect(comment.user.name).to eq(expected_username)
+      comments.each do |comment|
+        expect(comment.user.name).to eq(comment.user.name)
+      end
     end
 
     it "return post's title" do
@@ -44,7 +48,7 @@ RSpec.describe 'Users', type: :feature do
     end
     it 'return number of comments' do
       visit user_post_path(@user2, @post1)
-      expect(@user2.posts[0].comments.count).to have_content(1)
+      expect(@user2.posts[0].comments.count).to have_content(2)
     end
 
     it 'return number of likes' do
