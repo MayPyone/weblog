@@ -26,8 +26,6 @@ RSpec.describe 'Users', type: :feature do
 
     it 'returns username of each commentor.' do
       comments = @post1.comments
-
-
       expect(comments[0].user.name).to eq('May')
       expect(comments[1].user.name).to eq('Khaing')
     end
