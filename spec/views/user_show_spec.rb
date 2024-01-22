@@ -21,5 +21,12 @@ RSpec.describe 'Users', type: :feature do
       visit user_path(@user2)
       expect(page).to have_css("img[src*='#{@user2.photo}']")
     end
+
+    it "returns specific user's name" do
+      visit user_path(@user1)
+      expect(page).to have_content('Khaing')
+      visit user_path(@user2)
+      expect(page).to have_content('May')
+    end
   end
 end
