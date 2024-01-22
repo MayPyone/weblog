@@ -42,5 +42,12 @@ RSpec.describe 'Users', type: :feature do
       visit user_path(@user2)
       expect(@user2.posts.count).to have_content(1)
     end
+
+    it "return user's bio" do
+      visit user_path(@user1)
+      expect(@user1.bio).to have_content('officer')
+      visit user_path(@user2)
+      expect(@user2.bio).to have_content('student')
+    end
   end
 end
