@@ -28,5 +28,12 @@ RSpec.describe 'Users', type: :feature do
       visit user_path(@user2)
       expect(page).to have_content('May')
     end
+
+    it 'return recent 3 posts' do
+      visit user_path(@user1)
+      expect(@user1.recent_posts.count).to have_content(3)
+      visit user_path(@user2)
+      expect(@user2.posts.count).to have_content(1)
+    end
   end
 end
