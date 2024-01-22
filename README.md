@@ -115,6 +115,12 @@ To run tests, run the following command:
 - GitHub: [@May Pyone](https://github.com/MayPyone/)
 - LinkedIn: [May Pyone](https://www.linkedin.com/in/may-pyone-9439961a3/)
 
+👤 **Gladwin Tshepo Ramantso**
+
+- GitHub: [@tsheporamantso](https://github.com/tsheporamantso)
+- Twitter: [@ramgt001](https://twitter.com/ramgt001)
+- LinkedIn: [Tshepo Gladwin Ramantso](https://www.linkedin.com/in/tshepo-ramantso-b6a35433/)
+
 <!-- FUTURE FEATURES -->
 
 ## 🔭 Future Features <a name="future-features"></a>
