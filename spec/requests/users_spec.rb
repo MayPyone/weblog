@@ -36,5 +36,12 @@ RSpec.describe 'Users', type: :request do
       sleep 25
       expect(current_path).to eq(user_posts_path(@user1))
     end
+
+    it 'redirects to user show page too see all posts' do
+      visit user_path(@user1)
+      click_link 'See all posts'
+      sleep 25
+      expect(current_path).to eq(user_posts_path(@user1))
+    end
   end
 end
