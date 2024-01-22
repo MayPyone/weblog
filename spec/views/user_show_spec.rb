@@ -49,5 +49,10 @@ RSpec.describe 'Users', type: :feature do
       visit user_path(@user2)
       expect(@user2.bio).to have_content('student')
     end
+
+    it 'return a button that let see all posts' do
+      visit user_path(@user1)
+      expect(page).to have_selector('button', text: 'See all posts')
+    end
   end
 end
