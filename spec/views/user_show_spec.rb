@@ -35,5 +35,12 @@ RSpec.describe 'Users', type: :feature do
       visit user_path(@user2)
       expect(@user2.posts.count).to have_content(1)
     end
+
+    it 'return number of posts' do
+      visit user_path(@user1)
+      expect(@user1.posts.count).to have_content(4)
+      visit user_path(@user2)
+      expect(@user2.posts.count).to have_content(1)
+    end
   end
 end
