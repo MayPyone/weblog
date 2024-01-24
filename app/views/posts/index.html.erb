@@ -14,6 +14,9 @@
  <% end%>
  </div>
 </div>
+<div class="delete-post">
+  <% if can? :destroy, @post %>
+  <%= form_with url: user_post_path(@post.author, @post), method: :delete do |form| %>
 <% end %>
 <div class="container text-center paginate">
 <a href="/"><button type="paginate"><%= will_paginate %></button></a>
