@@ -110,6 +110,13 @@ To run tests, run the following command:
 
 ## 👥 Authors <a name="authors"></a>
 
+👤 **Gladwin Tshepo Ramantso**
+
+- GitHub: [@tsheporamantso](https://github.com/tsheporamantso)
+- Twitter: [@ramgt001](https://twitter.com/ramgt001)
+- LinkedIn: [Tshepo Gladwin Ramantso](https://www.linkedin.com/in/tshepo-ramantso-b6a35433/)
+
+
 👤 **May Pyone**
 
 - GitHub: [@May Pyone](https://github.com/MayPyone/)
