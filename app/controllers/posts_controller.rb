@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  load_and_authorize_resource
+
   def index
     @user = User.find(params[:user_id])
     @posts = @user.posts.includes(:comments).paginate(page: params[:page], per_page: 3)
@@ -25,6 +27,19 @@ class PostsController < ApplicationController
     return if @post.save
 
     render 'new'
+  end
+
+  def destroy
+    @user = User.find(params[:user_id])
+    @post = @user.posts.find_by(id: params[:id])
+    if @post
+      @post.comments.destroy_all
+      @post.destroy
+      flash[:notice] = 'Post was deleted.'
+    else
+      flash[:alert] = 'Post could not be found.'
+    end
+    redirect_to user_posts_path(@user)
   end
 
   private
