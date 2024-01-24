@@ -44,3 +44,11 @@
 .button-group button {
   width: 10%;
 }
+
+.delete-post {
+  border: 1px solid black;
+}
+
+.delete-post:active {
+  background-color: gray;
+}
